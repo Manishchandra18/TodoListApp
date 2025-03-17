@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
-import { getTodos, deleteTodo } from "../api";
+import { deleteTodo } from "../api";
 
-const TodoList = ({ token }) => {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    const fetchTodos = async () => {
-      const { data } = await getTodos(token);
-      setTodos(data);
-    };
-    fetchTodos();
-  }, [token]);
-
+const TodoList = ({ token, todos, onDelete }) => {
   const handleDelete = async (id) => {
     await deleteTodo(id, token);
-    setTodos(todos.filter(todo => todo._id !== id));
+    onDelete(id);
   };
 
   return (
