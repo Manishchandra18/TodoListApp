@@ -29,10 +29,10 @@ const Todos = ({ token }) => {
   };
 
   return (
-    <div>
+    <div className="todo-container">
       <h2>Todo List</h2>
       <TodoForm token={token} onAdd={addTodo} />
-      <TodoList token={token} todos={todos} onDelete={removeTodo} />
+      <TodoList token={token} todos={todos} onDelete={removeTodo}/>
     </div>
   );
 };

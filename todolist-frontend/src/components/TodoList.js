@@ -1,10 +1,11 @@
 import { deleteTodo } from "../api";
 
-const TodoList = ({ token, todos, onDelete }) => {
+const TodoList = ({ token, todos, onDelete}) => {
   const handleDelete = async (id) => {
     await deleteTodo(id, token);
     onDelete(id);
   };
+  
 
   return (
     <ul>
